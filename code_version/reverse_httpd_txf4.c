@@ -293,7 +293,7 @@ void *accept_request(void* pclient)
 		//item
 		 while(ISspace(buf[j]) &&(j<sizeof(buf)))
 			 j++;
-		 while (!ISspace(buf[j]) && (r < sizeof(info[l]) - 1) && (j < sizeof(buf)))
+		 while ((r < sizeof(info[l]) - 1) && (j < sizeof(buf)))
 		 {
 			  info[l][r] = buf[j];
 			  r++;
@@ -327,7 +327,7 @@ void *accept_request(void* pclient)
 		{
 			backend_sock_fd[k] = connect_backend(ip[k],port[k]);
 			//response_buf[n] = request_backend(client,backend_sock_fd[n],method,url,ip[n]);
-			request_backend(client,backend_sock_fd[k],method,url,ip[k]);
+			request_backend(client,backend_sock_fd[k],method,url,ip[k]，info);
 			//printf("response_buf%d:%s",n,response_buf[n]);
 			a[n] = -1;
 			n++;
